@@ -7,6 +7,7 @@
 3. Predictions: [literate-robot/PredictedResults](https://github.com/Spectre-ak/literate-robot/tree/main/PredictedResults)
 4. saved_model: [frozen_inference_graph.pb](https://github.com/Spectre-ak/literate-robot/blob/main/graphs/frozen_inference_graph.pb)
 5. labelmap: [labelmap.pbtxt](https://github.com/Spectre-ak/literate-robot/blob/main/graphs/labelmap.pbtxt)
+6. Labelling tool: [LabelImg](https://tzutalin.github.io/labelImg/)
 
 
 

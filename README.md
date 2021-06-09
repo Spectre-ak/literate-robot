@@ -7,3 +7,12 @@
 3. Predictions: [literate-robot/PredictedResults](https://github.com/Spectre-ak/literate-robot/tree/main/PredictedResults)
 4. saved_model: [frozen_inference_graph.pb](https://github.com/Spectre-ak/literate-robot/blob/main/graphs/frozen_inference_graph.pb)
 5. labelmap: [labelmap.pbtxt](https://github.com/Spectre-ak/literate-robot/blob/main/graphs/labelmap.pbtxt)
+
+
+
+Predictions
+
+![](https://github.com/Spectre-ak/literate-robot/blob/main/PredictedResults/Images/predcited_IMG_20210606_175342.jpg)
+
+![](https://github.com/Spectre-ak/literate-robot/blob/main/PredictedResults/Images/predcited_Grand%20Theft%20Auto%20V%202021-06-07%2014-09-53.mp4%20-%20PotPlayer%206_7_2021%205_45_24%20PM.jpg)
+

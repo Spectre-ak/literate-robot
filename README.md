@@ -9,7 +9,9 @@
 5. labelmap: [labelmap.pbtxt](https://github.com/Spectre-ak/literate-robot/blob/main/graphs/labelmap.pbtxt)
 6. Labelling tool: [LabelImg](https://tzutalin.github.io/labelImg/)
 
+Model used: [faster_rcnn_inception_v2_coco](http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz) from Tensorflow 1
 
+Trained using Tensorflow [object detection API](https://github.com/Spectre-ak/models)
 
 Predictions
 

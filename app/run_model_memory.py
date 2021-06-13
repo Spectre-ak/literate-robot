@@ -41,35 +41,37 @@ with detection_graph.as_default():
 detection_graph.as_default()
 sess=tf.compat.v1.Session(graph=detection_graph)
 
-def run(image_path):
-    try:
-        img=Image.open(image_path)
-        img=img.resize((1280,720))
-        image_np = np.array(img)
-        # To get real color we do this:
-        #image_np = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
-        # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
-        image_np_expanded = np.expand_dims(image_np, axis=0)
-        # Actual detection.
-        image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
-        boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
-        scores = detection_graph.get_tensor_by_name('detection_scores:0')
-        classes = detection_graph.get_tensor_by_name('detection_classes:0')
-        num_detections = detection_graph.get_tensor_by_name('num_detections:0')
-        # Visualization of the results of a detection.
-        (boxes, scores, classes, num_detections) = sess.run(
-            [boxes, scores, classes, num_detections],
-            feed_dict={image_tensor: image_np_expanded})
-        vis_util.visualize_boxes_and_labels_on_image_array(
-            image_np,
-            np.squeeze(boxes),
-            np.squeeze(classes).astype(np.int32),
-            np.squeeze(scores),
-            category_index,
-            use_normalized_coordinates=True,
-            line_thickness=2)
-        # Show image with detection
-        image_np=cv2.cvtColor(image_np,cv2.COLOR_BGR2RGB)
-        return image_np
-    except Exception as e:
-        return "image resolution must be atleast 1280x720"
+def run(image_path,id):
+    
+    img=Image.open(image_path)
+    img=img.resize((1280,720))
+    image_np = np.array(img)
+    # To get real color we do this:
+    #image_np = cv2.cvtColor(image_np, cv2.COLOR_BGR2RGB)
+    # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+    image_np_expanded = np.expand_dims(image_np, axis=0)
+    # Actual detection.
+    image_tensor = detection_graph.get_tensor_by_name('image_tensor:0')
+    boxes = detection_graph.get_tensor_by_name('detection_boxes:0')
+    scores = detection_graph.get_tensor_by_name('detection_scores:0')
+    classes = detection_graph.get_tensor_by_name('detection_classes:0')
+    num_detections = detection_graph.get_tensor_by_name('num_detections:0')
+    # Visualization of the results of a detection.
+    (boxes, scores, classes, num_detections) = sess.run(
+        [boxes, scores, classes, num_detections],
+        feed_dict={image_tensor: image_np_expanded})
+    vis_util.visualize_boxes_and_labels_on_image_array(
+        image_np,
+        np.squeeze(boxes),
+        np.squeeze(classes).astype(np.int32),
+        np.squeeze(scores),
+        category_index,
+        use_normalized_coordinates=True,
+        line_thickness=2)
+    # Show image with detection
+    image_np=cv2.cvtColor(image_np,cv2.COLOR_BGR2RGB)
+    result=id+"output.jpg"
+    cv2.imwrite(result,image_np)
+    os.remove(image_path)
+    return result
+    

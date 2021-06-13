@@ -1,4 +1,5 @@
 from flask import Flask,render_template, request
+from flask.helpers import send_file
 import run_model_memory
 import uuid
 
@@ -18,16 +19,26 @@ def runModelRest():
     run_model_memory.run()
     return "running"
 
+@app.route("/image/<name>")
+def data(name):
+    print(name)
+    return send_file(name,mimetype='image/gif')
+
 @app.route('/upload', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      name=str(uuid.uuid4())+".jpg"
-      print(name)
-      f.save((name))
-      image=run_model_memory.run(name)
-      res={"data":image}
-      return res
+    if request.method == 'POST':
+        f = request.files['file']
+        id=str(uuid.uuid4())
+        name=id+".jpg"
+        print(name)
+        f.save((name))
+        try:
+            result=run_model_memory.run(name,id)
+            image_url="http://localhost:5000/image/"+result
+            return image_url
+        except Exception as e:
+            return "image resolution must be atleast 1280x720"
+
 
 app.run(debug=True, host='0.0.0.0',port=5000)
 

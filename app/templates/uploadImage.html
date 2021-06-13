@@ -8,6 +8,10 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
 </head>
 
 <body>
@@ -15,11 +19,23 @@
     <div class="container">
         <h4>Upload Image</h4>
         <br><br>
-     
+
         <form id="iamgeForm">
-            <input type="file" name="file" id="imageFile"/>
-            <input type="submit" />
+            <input type="file" name="file" id="imageFile" class=""/>
+            <input type="submit" class="btn btn-primary"/>
         </form>
+
+        <div id="resultContainer">
+            <br /><br />
+            <div id="resultLoader" style="display: none;">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-grow text-primary" style="width: 6rem; height: 6rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <p style="text-align: center;">Running Model...</p>
+            </div>
+        </div>
 
     </div>
 
@@ -27,16 +43,16 @@
         document.getElementById("iamgeForm").addEventListener("submit", (e) => {
             e.preventDefault();
             console.log("send")
-            var data=new FormData(document.getElementById("iamgeForm"));
-            var image=document.getElementById("imageFile");
+            var data = new FormData(document.getElementById("iamgeForm"));
+            var image = document.getElementById("imageFile");
             console.log(image.files);
-              //image/jpeg
-            var size=image.files[0].size/1024/1024;size=parseInt(size);
-            if(size>=15 || !image.files[0].type.includes("image")){
+            //image/jpeg
+            var size = image.files[0].size / 1024 / 1024; size = parseInt(size);
+            if (size >= 15 || !image.files[0].type.includes("image")) {
                 alert("File type must be image(png or jpg) and size less than 15MB");
                 return;
             }
-
+            document.getElementById("resultLoader").style.display="block";
             $.ajax({
                 url: "http://localhost:5000/upload",
                 type: 'POST',
@@ -45,6 +61,13 @@
                 contentType: false
             }).done(function (d) {
                 console.log(d);
+                var img = document.createElement("img");
+                img.setAttribute("src", d);
+                img.setAttribute("class", "img-fluid");
+                img.setAttribute("alt", d);
+                img.style.paddingBottom="15px";
+                document.getElementById("resultContainer").appendChild(img);
+                document.getElementById("resultLoader").style.display="none";
             });
 
         });

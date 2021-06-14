@@ -6,6 +6,7 @@ ADD . /app
 
 RUN pip install -U pip
 RUN pip install -U setuptools
+RUN python3 -m pip install --upgrade tensorflow
 RUN pip install -r requirements.txt
 
 EXPOSE 5000

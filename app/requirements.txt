@@ -1,3 +1,4 @@
 flask
 Pillow
-opencv-python 
+opencv-python
+tf_slim

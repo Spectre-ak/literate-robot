@@ -46,8 +46,7 @@
             //console.log("send")
             var data = new FormData(document.getElementById("iamgeForm"));
             var image = document.getElementById("imageFile");
-            //console.log(image.files);
-            //image/jpeg
+           
             var size = image.files[0].size / 1024 / 1024; size = parseInt(size);
             if (size >= 15 || !image.files[0].type.includes("image")) {
                 alert("File type must be image(png or jpg) and size less than 15MB");

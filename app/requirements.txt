@@ -1,5 +1,5 @@
 flask
 tensorflow
-object-detection
+object-detection==0.1
 Pillow
 opencv-python

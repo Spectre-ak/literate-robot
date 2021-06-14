@@ -1,9 +1,11 @@
 FROM python:3.6.1-alpine
 
-WORKDIR /helloWorldFlask
+WORKDIR /app
 
-ADD . /helloWorldFlask
+ADD . /app
 
+RUN pip install -U pip
+RUN pip install -U setuptools
 RUN pip install -r requirements.txt
 
 EXPOSE 5000

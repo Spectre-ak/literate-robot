@@ -1,5 +1,5 @@
 flask
 tensorflow
 object-detection
-PIL==7.2.0
+Pillow
 opencv-python

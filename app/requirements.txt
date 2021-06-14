@@ -1,1 +1,5 @@
 flask
+tensorflow
+object-detection
+PIL
+opencv-python

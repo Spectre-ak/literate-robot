@@ -53,8 +53,10 @@
                 return;
             }
             document.getElementById("resultLoader").style.display="block";
+            var url="https://literate-robot.azurewebsites.net/upload"
             $.ajax({
-                url: "http://localhost:5000/upload",
+                url:url,
+                //url: "http://localhost:5000/upload",  
                 type: 'POST',
                 data: data,
                 processData: false,

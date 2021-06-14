@@ -34,7 +34,9 @@ def upload_file():
         f.save((name))
         try:
             result=run_model_memory.run(name,id)
-            image_url="http://localhost:5000/image/"+result
+            #image_url="http://localhost:5000/image/"+result  #https://literate-robot.azurewebsites.net/
+            image_url="https://literate-robot.azurewebsites.net/image/"+result  #
+            
             return image_url
         except Exception as e:
             return "image resolution must be atleast 1280x720"

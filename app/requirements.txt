@@ -2,3 +2,4 @@ flask
 Pillow
 opencv-python
 tf_slim
+matplotlib

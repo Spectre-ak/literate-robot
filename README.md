@@ -1,5 +1,7 @@
 # literate-robot
 
+#### Application using the model is available at https://literate-robot.azurewebsites.net/ and refer to [app](https://github.com/Spectre-ak/literate-robot/tree/main/app)
+
 #### A model which is trained on detecting obstacles from a cleaning robot Point Of View (POV).
 
 1. Training Notebook: [literate_robot.ipynb](https://colab.research.google.com/drive/1wMAVb21JKEOi11FrCKrOkdAox7XIyVJC?usp=sharing)

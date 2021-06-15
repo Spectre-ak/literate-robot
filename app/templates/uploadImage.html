@@ -9,17 +9,33 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-
 </head>
 
 <body>
 
     <div class="container"><br/>
-        <h4>Welcome to the literate robot</h4>
+        <div class="row">
+            <div class="col">
+                <h4>Welcome to the literate robot
+
+                </h4> 
+            </div>
+            <div class="col" style="text-align: right;">
+               <h4>
+                
+                    <a href="https://github.com/Spectre-ak/literate-robot" class="githubLogo" style="text-align: right;"> 
+                        <i class="fab fa-github" aria-hidden="true" id="githubLogo" onClick="window.location.href='https://github.com/Spectre-ak/literate-robot'"></i>
+                    (Documentation)</a>
+                    
+                       
+               
+               </h4>
+            </div>
+        </div>
+            
+        <br> 
         <p>Upload image to run the model</p>
-        <br><br>
+        
 
         <form id="iamgeForm">
             <input type="file" name="file" id="imageFile" class=""/>
